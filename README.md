@@ -31,7 +31,7 @@ CLIP的训练数据是 `<图像，文本> pair`。如图所示，一个`batch`�
 
 CLIP模型由两个主体部分组成：`Text Encoder`和`Image Encoder`。这两部分可以分别理解成文本和图像的特征提取器。
 
-对于`Text Encoder`，CLIP借鉴的是`GPT2`（[Radford et al.2019]([Language Models are Unsupervised Multitask Learners (openai.com)](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf))）的架构。对于每条`promp`t，在进入`Text Encoder`前，都会添加表示开始和结束的符号`[SOS] `与`[EOS]` 。最终将最后一层`[EOS] `位置的向量作为该`prompt`的特征表示向量，也就是图中所绘的。
+对于`Text Encoder`，CLIP借鉴的是`GPT2`（[Radford et al.2019](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)）的架构。对于每条`promp`t，在进入`Text Encoder`前，都会添加表示开始和结束的符号`[SOS] `与`[EOS]` 。最终将最后一层`[EOS] `位置的向量作为该`prompt`的特征表示向量，也就是图中所绘的。
 
 对于`Image Encoder`，CLIP则尝试过5种不同的ResNet架构和3种VIT架构，最终选用的是“ViTL/14@336px”这个模型，也就是架构为Large，`patch_size = 14`的ViT，同时在整个CLIP预训练结束后，用更高分辨率（336*336）的图片做了一个`epoch`的`fine-tune`，目的是让CLIP能涌现出更好的效果。与`Text Encoder`类似，每张图片对应一个最终特征表示向量。在读论文的过程中，我没有发现是来自于哪一出入层位置（也可能是我读漏了），但我猜测应该和`Text Encoder`差不多，可能来自分类头`[CLS]` 。
 
