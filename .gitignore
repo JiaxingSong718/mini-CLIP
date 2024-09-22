@@ -1,0 +1,8 @@
+/checkpoints/*.pth
+!/checkpoints/
+
+/dataset/data/*
+
+/PDF
+
+/test.py
