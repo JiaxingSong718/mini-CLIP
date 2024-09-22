@@ -1,6 +1,17 @@
 # mini-CLIP
 
-[TOC]
+- [mini-CLIP](#mini-clip)
+  - [1. CLIP模型整体结构](#1-clip模型整体结构)
+    - [1.1 训练数据](#11-训练数据)
+    - [1.2 预训练：对比训练](#12-预训练对比训练)
+      - [对比学习](#对比学习)
+    - [1.3 CLIP Zero-shot预测](#13-clip-zero-shot预测)
+  - [2. mini-CLIP实现](#2-mini-clip实现)
+    - [2.1 mini-CLIP结构](#21-mini-clip结构)
+    - [2.2 训练](#22-训练)
+    - [2.3 推理](#23-推理)
+  - [Reference](#reference)
+
 
 ## 1. CLIP模型整体结构
 
